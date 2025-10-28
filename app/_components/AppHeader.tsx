@@ -1,3 +1,6 @@
+"use client";
+import { sdk } from "@farcaster/miniapp-sdk";
+
 import Image from "next/image";
 import { APP_CONFIG, UI_MESSAGES } from "@/app/_lib/constants";
 
@@ -6,6 +9,8 @@ interface AppHeaderProps {
 }
 
 export default function AppHeader({ isInMiniApp }: AppHeaderProps) {
+  const user = (sdk as any)?.context?.user ?? null;
+  
   return (
     <>
       <Image
